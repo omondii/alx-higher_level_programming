@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-import compileall
 import os
+import compileall
 
-pyfile = os.environ.get('PYFILE')
-output_file = pyfile + 'C'
-compileall.compile_file(pyfile, force=True)
+pyfile = os.environ["PYFILE"]
+output_file = pyfile + '.pyc'
+compileall(pyfile, output_file)
