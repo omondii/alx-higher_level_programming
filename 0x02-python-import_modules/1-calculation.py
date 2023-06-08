@@ -8,7 +8,7 @@ if __name__ == "__main__":
 
     print(f"{} + {} = {}".format(a, b, add(a, b)))
 
-    print(f"{} - {} = {}".format(a, b, sub(a -b)))
+    print(f"{} - {} = {}".format(a, b, sub(a, b)))
 
     print(f"{} * {} = {}".format(a, b, mul(a, b)))
 
