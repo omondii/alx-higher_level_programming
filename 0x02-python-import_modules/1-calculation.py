@@ -4,10 +4,15 @@ if __name__ == "__main__":
     a = 10
     b = 5
 
-    print (f"{a} + {b} = {add(a, b)}")
+    result_add = add(a, b)
+    result_sub = sub(a, b)
+    result_mul = mul(a, b)
+    result_div = div(a, b)
 
-    print(f"{a} - {b} = {sub(a, b)}")
+    print (f"{a} + {b} = {result_add}")
 
-    print(f"{a} * {b} = {mul(a, b)}")
+    print(f"{a} - {b} = {result_sub}")
 
-    print(f"{a} / {b} = {div(a, b)}")
+    print(f"{a} * {b} = {result_mul}")
+
+    print(f"{a} / {b} = {result_div}")
