@@ -2,7 +2,7 @@
 if __name__ == "__main__":
     import sys
     if (len(sys.argv) - 1) != 1:
-        print("{} argument".format(len(sys.argv) - 1), end="")
+        print("{} arguments".format(len(sys.argv) - 1), end="")
     else:
         print("{} argument".format(len(sys.argv) - 1), end="")
 
@@ -14,4 +14,4 @@ if __name__ == "__main__":
     for count, argument in enumerate(sys.argv):
         if (count == 0):
             continue
-        print("{}:{}".format((count), argument))
+        print("{}: {}".format((count), argument))
