@@ -4,6 +4,8 @@
 value - the interger passed to be printed
 
 """
+
+
 def safe_print_integer(value):
     try:
         print("{:d}".format(value))
