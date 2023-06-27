@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 """
-   safe_print_integer - prints an interger
-   value - Interger to print
+1-safe_print_integer.py - prints an interger
+value - the interger passed to be printed
+
 """
-
-
 def safe_print_integer(value):
     try:
         print("{:d}".format(value))
