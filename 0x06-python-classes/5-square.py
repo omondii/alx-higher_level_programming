@@ -15,6 +15,14 @@ class Square:
         """
         return (self.__size) * (self.__size)
 
+    def my_print(self):
+        """public instance that prints in stdout with the character #"""
+        for i in range(self.__size):
+            if self.__size != 0:
+                print("#" * self.__size)
+            else:
+                print()
+
     @property
     def size(self):
         """getter method: retrieves the size property"""
@@ -28,11 +36,3 @@ class Square:
         if value < 0:
             raise ValueError("size must be >= 0")
         self.__size = value
-
-    def my_print(self):
-        """public instance that prints in stdout with the character #"""
-        for i in range(self.__size):
-            if self.__size != 0:
-                print("#" * self.__size)
-            else:
-                print()
