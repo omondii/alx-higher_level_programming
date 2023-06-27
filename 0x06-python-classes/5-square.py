@@ -1,3 +1,9 @@
+#!/usr/bin/python3
+"""A square class
+   Errors:
+       TypeError accept int only. ValueError: int should > 0
+   Returns: Prints a square with size dimentions
+"""
 class Square:
     """Defining a square with size as its argument"""
     def __init__(self, size=0):
@@ -36,3 +42,11 @@ class Square:
         if value < 0:
             raise ValueError("size must be >= 0")
         self.__size = value
+
+    def my_print(self):
+        """public instance that prints in stdout with the character #"""
+        for i in range(self.__size):
+            if self.__size != 0:
+                print("#" * self.__size)
+            else:
+                print()
