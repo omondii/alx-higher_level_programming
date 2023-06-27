@@ -4,6 +4,8 @@
        TypeError accept int only. ValueError: int should > 0
    Returns: Prints a square with size dimentions
 """
+
+
 class Square:
     """Defining a square with size as its argument"""
     def __init__(self, size=0):
