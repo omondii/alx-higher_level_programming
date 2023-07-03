@@ -5,4 +5,5 @@ An empty rectangle class
 
 
 class Rectangle:
+    """A empty class"""
     ...
