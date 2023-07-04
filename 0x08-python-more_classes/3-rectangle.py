@@ -18,6 +18,28 @@ class Rectangle:
         self.width = width
         self.height = height
 
+    def area(self):
+        """Returns the area of a rectangle"""
+        return self.__width * self.__height
+
+    def perimeter(self):
+        """Returns the perimeter of a rectangle"""
+        try:
+            return (self.__width + self.__height) * 2
+        except self.__width == 0 or self.__heigth == 0:
+            return 0
+
+    def __str__(self):
+        if self.__width == 0 or self.__height == 0:
+            return ""
+
+        rectangle= ""
+        for i in range(self.__height):
+            for j in range(self.__width):
+                rectangle += "#"
+            rectangle += "\n"
+        return rectangle
+
     @property
     def width(self):
         """Getter method. Sets the current value of width"""
@@ -45,14 +67,3 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
-
-    def area(self):
-        """Returns the area of a rectangle"""
-        return self.__width * self.__height
-
-    def perimeter(self):
-        """Returns the perimeter of a rectangle"""
-        try:
-            return (self.__width + self.__height) * 2
-        except self.__width or self.__heigth == 0:
-            return 0
