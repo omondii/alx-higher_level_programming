@@ -13,8 +13,11 @@ class Rectangle:
     (Public) class attribute:
         number_of_instances - holds the number of object instances based on the
         init and del methods
+        print_symbol - var to hold the print symbol that reps the object
+         return[:1] -to remove the initial #
     """
     number_of_instances = 0
+    print_symbol = '#'
 
     def __init__(self, width=0, height=0):
         """
@@ -46,9 +49,9 @@ class Rectangle:
 
         for i in range(self.__height):
             for j in range(self.__width):
-                rectangle += "#"
+                rectangle += str(self.print_symbol)
             rectangle += "\n"
-        return rectangle
+        return rectangle[:-1]
 
     def __repr__(self):
         """returns a string rep of the rectangel.
