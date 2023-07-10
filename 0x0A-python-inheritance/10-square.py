@@ -13,6 +13,7 @@ class Square(Rectangle):
        size - reps the 4 sides of a square
     """
     def __init__(self, size):
+        """Instantiating the private method square"""
         self.__size = size
         self.integer_validator("size", size)
         super().__init__(size, size)

@@ -14,6 +14,7 @@ class Rectangle(BaseGeometry):
         height - rectangle height
     """
     def __init__(self, width, height):
+        """instantiating width and height"""
         super().__init__()
         self.__width = width
         self.__height = height

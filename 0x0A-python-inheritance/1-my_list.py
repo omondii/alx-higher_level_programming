@@ -11,8 +11,10 @@ class MyList(list):
         A sorted list
     """
     def __init__(self):
+        """public instance method"""
         super().__init__()
 
     def print_sorted(self):
+        """prints a sorted list"""
         sorted_list = sorted(self)
         print(sorted_list)
