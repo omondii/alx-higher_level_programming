@@ -12,6 +12,7 @@ class Square(Rectangle):
     Params:
        size - reps the 4 sides of a square
     """
+
     def __init__(self, size):
         """Instantiating the private method square"""
         self.__size = size
@@ -20,4 +21,4 @@ class Square(Rectangle):
 
     def area(self):
         """returns the area of the rectangle"""
-        return(self.__size * self.__size)
+        return (self.__size * self.__size)
