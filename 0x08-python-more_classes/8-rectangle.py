@@ -60,7 +60,7 @@ class Rectangle:
         return f"Rectangle({self.width}, {self.height})"
 
     def __del__(self):
-        """Gabarge collection method function. Prints a deletion
+        """Garbage collection method function. Prints a deletion
         notification
         """
         Rectangle.number_of_instances -= 1
@@ -69,7 +69,18 @@ class Rectangle:
 
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
-        
+        """
+        Using a static method to compare the area of the 2 rectangle instances
+        First check if both rect_1 and  2 are instances of rectangle.
+        """
+        if not isinstance(rect_1, Rectangle):
+            raise TypeError("rect_1 must be an instance of Rectangle")
+        if not isinstance(rect_2, Rectangle):
+            raise TypeError("rect_2 must be an instance of Rectangle")
+        if rect_1.area() >= rect_2.area():
+            return rect_1
+        else:
+            return rect_2
 
     @property
     def width(self):
