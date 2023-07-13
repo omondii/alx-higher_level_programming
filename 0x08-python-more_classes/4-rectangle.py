@@ -42,7 +42,7 @@ class Rectangle:
             for j in range(self.__width):
                 rectangle += "#"
             rectangle += "\n"
-        return rectangle
+        return rectangle.rstrip("\n")
 
     def __repr__(self):
         return f"Rectangle({self.width}, {self.height})"
