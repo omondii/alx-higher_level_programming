@@ -7,6 +7,7 @@ Base
 import unittest
 from models.base import Base
 
+
 class TestBase(unittest.TestCase):
     def test_id_increment(self):
         """
@@ -21,11 +22,12 @@ class TestBase(unittest.TestCase):
 
     def test_id_initialization(self):
         """
-        Test if id initializes correctly wheb given a value
+        Test if id initializes correctly when given a value
         Id should be equal to value provided when calling base()
         """
         base = Base(10)
         self.assertEqual(base.id, 10)
+
 
 if __name__ == '__main__':
     unittest.main()
