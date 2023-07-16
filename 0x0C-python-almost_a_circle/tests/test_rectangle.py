@@ -31,7 +31,6 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r2.y, 15)
         self.assertEqual(r2.id, 100)
 
-
     def test_invalidtype(self):
         """ Test if the program raises type errors for non int input """
         with self.assertRaises(TypeError):
@@ -44,9 +43,22 @@ class TestRectangle(unittest.TestCase):
             Rectangle(-1, -10)
 
     def test_invalid_xyvalue(self):
-        """ Test if the prog raises value error for non positive numbers x&y """
+        """ Test if the prog raises value error for non positive
+        numbers x&y """
         with self.assertRaises(ValueError):
             Rectangle(1, 4, -1)
 
+class TestArea(unittest.TestCase):
+        """
+        Test for the correct output
+        Test for positive values, 0 values & negatives
+        """
+        def test_area(self):
+            r3= Rectangle(10, 5, id=34)
+            result = r3.area()
+            self.assertEqual(result, 50)
+
+
+
 if __name__ == '__main__':
-    xsunittest.main()
+    unittest.main()
