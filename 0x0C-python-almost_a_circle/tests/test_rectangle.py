@@ -32,5 +32,21 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r2.id, 100)
 
 
+    def test_invalidtype(self):
+        """ Test if the program raises type errors for non int input """
+        with self.assertRaises(TypeError):
+            Rectangle("me")
+
+    def test_invalidvalue(self):
+        """ Test if the program raises value error for less than 0
+        width & height"""
+        with self.assertRaises(ValueError):
+            Rectangle(-1, -10)
+
+    def test_invalid_xyvalue(self):
+        """ Test if the prog raises value error for non positive numbers x&y """
+        with self.assertRaises(ValueError):
+            Rectangle(1, 4, -1)
+
 if __name__ == '__main__':
-    unittest.main()
+    xsunittest.main()
