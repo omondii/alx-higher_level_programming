@@ -60,8 +60,18 @@ class Rectangle(Base):
 
     def display(self):
         """ prints # for every rectangle instance """
+        for _ in range(self.__y):
+            print()
         for row in range(self.__height):
-                print('#' * self.__width)
+            for _ in range(self.__x):
+                print(" ", end="")
+            print('#' * self.__width)
+
+    def __str__(self):
+        """ __str__ implementation """
+        return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x,
+                                                        self.__y, self.__width,
+                                                        self.__height))
 
     @property
     def width(self):
