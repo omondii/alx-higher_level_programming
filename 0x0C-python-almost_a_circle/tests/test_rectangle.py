@@ -58,6 +58,24 @@ class TestRectangle(unittest.TestCase):
             self.r6 = Rectangle(4, 5, 45, "7", 17)
         self.assertEqual(str(se.exception), "y must be an integer")
 
+    def test_Invalidvalue(self):
+        """ Test for errors for incorrect values """
+        with self.assertRaises(ValueError) as se:
+            self.r7 = Rectangle(-10, 6, 8, 15, 23)
+        self.assertEqual(str(se.exception), "width must be > 0")
+
+        with self.assertRaises(ValueError) as se:
+            self.r8 = Rectangle(10, -6, 8, 15, 53)
+        self.assertEqual(str(se.exception), "height must be > 0")
+
+        with self.assertRaises(ValueError) as se:
+            self.r9 = Rectangle(10, 6, -8, 15, 43)
+        self.assertEqual(str(se.exception), "x must be >= 0")
+
+        with self.assertRaises(ValueError) as se:
+            self.r10 = Rectangle(10, 6, 8, -15, 40)
+        self.assertEqual(str(se.exception), "y must be >= 0")
+
 class TestAreaDisplay(unittest.TestCase):
         """
         Test for the correct output
