@@ -35,7 +35,7 @@ class Rectangle(Base):
         """
         width & height checker. Must be of type int && not less than 0
         """
-        if  not isinstance(value, int):
+        if not isinstance(value, int):
             raise TypeError(f"{name} must be an interger")
         if value <= 0:
             raise ValueError(f"{name} must be > 0")

@@ -9,6 +9,18 @@ from models.base import Base
 
 
 class TestBase(unittest.TestCase):
+    def setUp(self):
+        """
+        self.base1 = Base()
+        self.base2 = Base()
+        """
+
+    def tearDown(self):
+        """
+        self.base1 = None
+        self.base2 = None
+        """
+
     def test_id_increment(self):
         """
             Test if the id is incrementing correctly
