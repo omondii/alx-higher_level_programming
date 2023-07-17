@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 """
-No imported modules
+Imported modules:
+json
 """
+import json
 
 
 class Base:
@@ -20,3 +22,24 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """ Returns the json rep of list_dictionaries """
+        if list_dictionaries is None:
+            return "[]"
+        else:
+            return json.dumps(list_dictionaries)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        pass
+
+    @staticmethod
+    def from_json_string(json_string):
+        if json_string is None:
+            return []
+        else:
+            data = json.loads(json_string)
+            return data
