@@ -113,10 +113,12 @@ class TestUpdate(unittest.TestCase):
     def setUp(self):
         """ Setup needed resources by creating rectangle instances"""
         self.r = Rectangle(1, 1)
+        self.rd = Rectangle(10, 3, 54, 13, 9)
 
     def tearDown(self):
         """ Clean up the resources used in the testsuite"""
         self.r = None
+        self.rd = None
 
     def test_arguments1(self):
         """
@@ -143,6 +145,12 @@ class TestUpdate(unittest.TestCase):
         self.assertEqual(self.r._Rectangle__height, 15)
         self.assertEqual(self.r._Rectangle__x, 20)
         self.assertEqual(self.r._Rectangle__y, 100)
+
+    def test_dictionary(self):
+        self.rd = Rectangle(10, 3, 54, 13, 9)
+        self.assertEqual(self.rd.to_dictionary(), {"id": 9, "width": 10,
+                                                   "height": 3, "x": 54,
+                                                   "y": 13})
 
 
 if __name__ == '__main__':
