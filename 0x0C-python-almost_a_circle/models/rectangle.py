@@ -112,17 +112,17 @@ class Rectangle(Base):
     def update(self, *args, **kwargs):
         """ Public method tahta assigns an argument to each attribute """
         if args:
-            for i, v in enumerate(args):
+            for i, value in enumerate(args):
                 if i == 0:
-                    self.id = v
+                    self.id = value
                 if i == 1:
-                    self.__width = v
+                    self.__width = value
                 if i == 2:
-                    self.__height = v
+                    self.__height = value
                 if i == 3:
-                    self.__x = v
+                    self.__x = value
                 if i == 4:
-                    self.__y = v
+                    self.__y = value
         else:
             for key, value in kwargs.items():
                 if key == 'id':
