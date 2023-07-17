@@ -42,20 +42,21 @@ class TestRectangle(unittest.TestCase):
 
     def test_invalidtype(self):
         """ Test if the program raises type errors for non int input """
-        with self.assertRaises(TypeError):
-            Rectangle("me")
+        with self.assertRaises(TypeError) as se:
+            self.r3 = Rectangle("me", 4, 8, 16, 20)
+        self.assertEqual(str(se.exception), "width must be an integer")
 
-    def test_invalidvalue(self):
-        """ Test if the program raises value error for less than 0
-        width & height"""
-        with self.assertRaises(ValueError):
-            Rectangle(-1, -10)
+        with self.assertRaises(TypeError) as se:
+            self.r4 = Rectangle(4, "5", 45, 7, 19)
+        self.assertEqual(str(se.exception), "height must be an integer")
 
-    def test_invalid_xyvalue(self):
-        """ Test if the prog raises value error for non positive
-        numbers x&y """
-        with self.assertRaises(ValueError):
-            Rectangle(1, 4, -1)
+        with self.assertRaises(TypeError) as se:
+            self.r5 = Rectangle(4, 5, "45", 7, 18)
+        self.assertEqual(str(se.exception), "x must be an integer")
+
+        with self.assertRaises(TypeError) as se:
+            self.r6 = Rectangle(4, 5, 45, "7", 17)
+        self.assertEqual(str(se.exception), "y must be an integer")
 
 class TestAreaDisplay(unittest.TestCase):
         """
