@@ -8,17 +8,25 @@ import unittest
 from models.square import Square
 
 class TestSquare(unittest.TestCase):
+    @classmethod
     def setUp(self):
         self.s1 = Square(10, 4, 6, 5)
+        self.s2 = Square(id=1, size=2)
 
+    @classmethod
     def tearDown(self):
-        self.s1 = None
+        del self.s1
+        del self.s2
 
     def test_initialization(self):
         self.assertEqual(self.s1.id, 5)
         self.assertEqual(self.s1.size, 10)
         self.assertEqual(self.s1.x, 4)
         self.assertEqual(self.s1.y, 6)
+
+        """ test square initialization with 2 args"""
+        self.assertEqual(self.s2.size, 2)
+        self.assertEqual(self.s2.id, 1)
 
     def test_typeerror(self):
         with self.assertRaises(TypeError) as se:
