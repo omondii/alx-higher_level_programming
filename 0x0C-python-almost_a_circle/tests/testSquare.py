@@ -48,3 +48,14 @@ class TestUpdate(unittest.TestCase):
         self.assertEqual(self.s1.size, 6)
         self.assertEqual(self.s1.x, 10)
         self.assertEqual(self.s1.y, 1 )
+
+class TestSquareDisplay(unittest.TestCase):
+    @classmethod
+    def setUp(self):
+        self.s1 = Square(4, 5, 6, 10)
+
+    @classmethod
+    def tearDown(self):
+        del self.s1
+    def test_str(self):
+        self.assertEqual(str(self.s1), "[Square] (10) 5/6 - 4")
