@@ -11,7 +11,7 @@ class TestSquare(unittest.TestCase):
     @classmethod
     def setUp(self):
         self.s1 = Square(10, 4, 6, 5)
-        self.s2 = Square(id=1, size=2)
+        self.s2 = Square(1, 2, id=0)
 
     @classmethod
     def tearDown(self):
@@ -25,8 +25,8 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(self.s1.y, 6)
 
         """ test square initialization with 2 args"""
-        self.assertEqual(self.s2.size, 2)
-        self.assertEqual(self.s2.id, 1)
+        self.assertEqual(self.s2.size, 1)
+        self.assertEqual(self.s2.id, 0)
 
     def test_typeerror(self):
         with self.assertRaises(TypeError) as se:
