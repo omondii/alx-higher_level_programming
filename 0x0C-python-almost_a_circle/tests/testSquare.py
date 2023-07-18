@@ -57,5 +57,12 @@ class TestSquareDisplay(unittest.TestCase):
     @classmethod
     def tearDown(self):
         del self.s1
+
     def test_str(self):
+        """ str representation should be as expected """
         self.assertEqual(str(self.s1), "[Square] (10) 5/6 - 4")
+
+    def test_dictionary(self):
+        """ Returned dictionary should be as expected """
+        self.assertEqual(self.s1.to_dictionary(), {"id": 10, "size": 4,
+                                                "x": 5, "y": 6})
