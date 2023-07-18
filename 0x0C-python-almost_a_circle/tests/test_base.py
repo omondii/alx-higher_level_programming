@@ -9,17 +9,16 @@ from models.base import Base
 
 
 class TestBase(unittest.TestCase):
+    @classmethod
     def setUp(self):
-        """
         self.base1 = Base()
         self.base2 = Base()
-        """
 
+    @classmethod
     def tearDown(self):
-        """
         self.base1 = None
         self.base2 = None
-        """
+
 
     def test_id_increment(self):
         """
@@ -27,10 +26,8 @@ class TestBase(unittest.TestCase):
             assertEqual verifies if the returned value is similar
             to the expected one
         """
-        base1 = Base()
-        base2 = Base()
-        self.assertEqual(base1.id, 1)
-        self.assertEqual(base2.id, 2)
+        self.assertEqual(self.base1.id, 3)
+        self.assertEqual(self.base2.id, 4)
 
     def test_id_initialization(self):
         """
