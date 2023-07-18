@@ -10,15 +10,19 @@ from contextlib import redirect_stdout
 from io import StringIO
 
 class TestRectangle(unittest.TestCase):
+    @classmethod
     def setUp(self):
         """ Setup needed resources by creating rectangle instances"""
         self.r1 = Rectangle(10, 2, 5, 0)
         self.r2 = Rectangle(1, 3, 11, 15, 100)
+        self.r3 = Rectangle(1, 2)
 
+    @classmethod
     def tearDown(self):
         """ Clean up the resources used in the testsuite"""
         self.r1 = None
         self.r2 = None
+        del self.r3
 
     def test_initialization(self):
         """
@@ -39,6 +43,9 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(self.r2.x, 11)
         self.assertEqual(self.r2.y, 15)
         self.assertEqual(self.r2.id, 100)
+
+        self.assertEqual(self.r3.width, 1)
+        self.assertEqual(self.r3.height, 2)
 
     def test_invalidtype(self):
         """ Test if the program raises type errors for non int input """
@@ -61,11 +68,11 @@ class TestRectangle(unittest.TestCase):
     def test_Invalidvalue(self):
         """ Test for errors for incorrect values """
         with self.assertRaises(ValueError) as se:
-            self.r7 = Rectangle(-10, 6, 8, 15, 23)
+            self.r7 = Rectangle(0, 2)
         self.assertEqual(str(se.exception), "width must be > 0")
 
         with self.assertRaises(ValueError) as se:
-            self.r8 = Rectangle(10, -6, 8, 15, 53)
+            self.r8 = Rectangle(2, 0)
         self.assertEqual(str(se.exception), "height must be > 0")
 
         with self.assertRaises(ValueError) as se:
@@ -81,12 +88,14 @@ class TestAreaDisplay(unittest.TestCase):
         Test for the correct output
         Test for positive values, 0 values & negatives
         """
+        @classmethod
         def setUp(self):
             """ Setup needed resources by creating rectangle instances"""
             self.r3 = Rectangle(10, 5, id=34)
             self.r = Rectangle(10, 3, 6, 8, 56)
             self.rd = Rectangle(3, 2, id=10)
 
+        @classmethod
         def tearDown(self):
             """ Clean up the resources used in the testsuite"""
             self.r3 = None
@@ -110,11 +119,12 @@ class TestAreaDisplay(unittest.TestCase):
             self.assertEqual(result, expected)
 
 class TestUpdate(unittest.TestCase):
+    @classmethod
     def setUp(self):
         """ Setup needed resources by creating rectangle instances"""
         self.r = Rectangle(1, 1)
         self.rd = Rectangle(10, 3, 54, 13, 9)
-
+    @classmethod
     def tearDown(self):
         """ Clean up the resources used in the testsuite"""
         self.r = None
