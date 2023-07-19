@@ -61,3 +61,16 @@ class Base:
 
         r.update(**dictionary)
         return r
+
+    @classmethod
+    def load_from_file(cls):
+        filename = cls.__name__ + ".json"
+        try:
+            with open(filename, mode="r") as f:
+                jsonList = f.read()
+                dictList = cls.from_json_string(jsonList)
+                objList = [cls.create(**obj) for obj in dictList]
+
+                return objList
+        except FileNotFoundError:
+            return []
