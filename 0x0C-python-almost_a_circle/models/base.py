@@ -33,12 +33,31 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
-        pass
+        """ returns .json with the string represents of list_objs """
+        filename = cls.__name__ + ".json"
+        with open(filename, "w", encoding="utf-8") as f:
+            if list_objs is None:
+                f.write("[]")
+            else:
+                dictList = [obj.to_dictionary() for obj in list_objs]
+                json_str = cls.to_json_string(dictList)
+                f.write(json_str)
 
     @staticmethod
     def from_json_string(json_string):
+        """ Returns .json file that reps a list of dicts"""
         if json_string is None:
             return []
         else:
             data = json.loads(json_string)
             return data
+
+    @classmethod
+    def create(cls, **dictionary):
+        if cls.__name__ == "Square":
+            r = cls(4)
+        else:
+            r = cls(4, 4)
+
+        r.update(**dictionary)
+        return r
