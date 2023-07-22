@@ -2,8 +2,10 @@
 """
 Imported modules:
 json
+turtle - drawing module
 """
 import json
+import turtle
 
 
 class Base:
@@ -74,3 +76,34 @@ class Base:
                 return objList
         except FileNotFoundError:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        pass
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        window = turtle.Screen()
+        window.title("Drawing from created instances")
+        t = turtle.Turtle()
+
+        for rect in  list_rectangles:
+            t.penup()
+            t.goto(rect.x, rect.y)
+            t.pendown()
+            for _ in range(2):
+                t.forward(rect.width)
+                t.left(90)
+                t.forward(rect.height)
+                t.left(90)
+
+        for square in list_rectangles:
+            t.penup()
+            t.goto(square.x, square.y)
+            t.pendown()
+            for _ in range(4):
+                t.forward(square.width)
+                t.left(90)
+
+        t.hideturtle()
+        window.mainloop()
