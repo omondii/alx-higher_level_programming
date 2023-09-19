@@ -13,18 +13,21 @@ from model_state import Base, State
 
 if __name__ == "__main__":
     engine = create_engine(f'mysql+mysqldb://{sys.argv[1]}:{sys.argv[2]}@localhost/{sys.argv[3]}, pool_pre_ping=True')
+
     # Create a session using the sessionmaker method
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    # Query the db for first item only. Use the first() method
-    firstState = session.query(State).first()
+    Base.metadata.create_all(engine)
 
-    # Print the query results
-    if firstState:
-        print(f'{firstState.id}: {firstState.name}')
-    else:
-        print("\n")
+    criteria = State.name.like('%a%')
 
-    # Close the session
+    # Query the db for all cities with a
+    stateA = session.query(State).filter(criteria).order_by(State.id).all()
+
+    # Print the records that match the criteria
+    for state in stateA:
+        print(f'{state.id}: {state.name}')
+
+    # close the session when done
     session.close()
