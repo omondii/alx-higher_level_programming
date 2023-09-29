@@ -4,7 +4,6 @@ Imported
 urllib
 sys
 """
-import urllib.parse
 import urllib.request
 import sys
 
