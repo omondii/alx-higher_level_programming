@@ -8,7 +8,7 @@ class Rectangle {
 	  this.height = h;
     }
   }
-
+  /* Instance method that prints the rectangle usng the character 'X' */
   print () {
     for (let i = 0; i < this.height; i++) {
 	    let row = '';
