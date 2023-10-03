@@ -13,7 +13,7 @@ Base = declarative_base()
 
 class State(Base):
     """
-    State class definition
+    State Class Definition
     Params:
        id: id field ogf the class
        name: state name
