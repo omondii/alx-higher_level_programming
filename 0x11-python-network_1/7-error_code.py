@@ -1,22 +1,17 @@
 #!/usr/bin/python3
+"""Display response body
 """
-Imported modules;
-requests
-sys
-"""
+
 import requests
-import sys
+from sys import argv
 
+if __name__ == '__main__':
 
-if __name__ == '__main':
-    utl = sys.argv[1]
+    url = argv[1]
+
     try:
-        with requests.get(url) as response:
-            response.raise_for_status()
-            html = response.text
-        print(html)
-    except requests.exceptions.RequestException as e:
-        if hasattr(e.response, 'status_code'):
-            print('Error code:', e.response.status_code)
-        else:
-            print('Error Code:', e)
+        r = requests.get(url)
+        r.raise_for_status()
+        print(r.text)
+    except:
+        print('Error code: {}'.format(r.status_code))
