@@ -1,21 +1,17 @@
 #!/usr/bin/python3
+"""Request id from GitHub API
 """
-Imported modules;
-sys
-requests
-"""
-from sys import argv
-import requests
 
+import requests
+from sys import argv
 
 if __name__ == '__main__':
-    url = "https://api.github.com/repos/{}/{}/commits".format(argv[2], argv[1])
-    req = requests.get(url)
-    commits = req.json()
 
-    try:
-        for index in range(10):
-            print(f"{commits[index].get('sha')} {commits[index].get('commit').get('author').get('name')}")
+    url = 'https://api.github.com/user'
+    user = argv[1]
+    token = argv[2]
+    headers = {'Authorization': 'token {}'.format(token)}
 
-    except IndexError:
-        pass
+    r = requests.get(url, headers=headers)
+
+    print(r.json().get('id'))
