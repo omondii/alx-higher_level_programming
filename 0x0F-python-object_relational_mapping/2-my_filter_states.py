@@ -15,7 +15,7 @@ if __name__ == '__main__':
     cursor = db.cursor()
 
     # MySQL execution
-    cursor.execute('SELECT id, FROM states '
+    cursor.execute('SELECT id, name FROM states '
                    'WHERE name = %s '
                    'ORDER BY states.id ASC', (search,))
     for row in cursor.fetchall():
