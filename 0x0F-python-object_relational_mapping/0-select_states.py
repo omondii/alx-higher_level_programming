@@ -7,6 +7,7 @@ import MySQLdb
 from sys import argv
 
 if __name__ == '__main__':
+
     # set up the db connection with all required params
     db = MySQLdb.connect(host='localhost',
                          port=3306,
@@ -15,7 +16,7 @@ if __name__ == '__main__':
     # create a cursor object
     cursor = db.cursor()
 
+    # MySQL execution;
     cursor.execute('SELECT id, name FROM states ORDER BY states.id ASC')
-
     for row in cursor.fetchall():
         print(row)
