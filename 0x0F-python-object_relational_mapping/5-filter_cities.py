@@ -18,7 +18,7 @@ if __name__ == '__main__':
     cursor.execute('SELECT cities.name FROM cities '
                    'JOIN states '
                    'ON cities.state_id = states.id '
-                   'WHERE state.name = %s '
-                   'ORDER BY states.id ASC', (search))
+                   'WHERE states.name = %s '
+                   'ORDER BY states.id ASC', (search,))
     for row in cursor.fetchall():
         print(row)
