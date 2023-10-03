@@ -1,33 +1,29 @@
 #!/usr/bin/python3
-"""
-Imported modules
-sys
-Base, State from model_state
-create_engine
-"""
+""" List all state objects using sqlalchemy """
 
+if __name__ == '__main__':
 
-import sys
-from sqlalchemy import (create_engine)
-from sqlalchemy.orm import sessionmaker
-from model_state import Base, State
+    from sys import argv
+    from sqlalchemy import create_engine
+    from sqlalchemy.orm.session import sessionmaker, Session
+    from model_state import Base, State
 
+    username = argv[1]
+    password = argv[2]
+    db_name = argv[3]
+    search = argv[4]
+    found = 0
 
-if __name__ == "__main__":
-    engine = create_engine(f'mysql+mysqldb://{sys.argv[1]}:{sys.argv[2]}@localhost/{sys.argv[3]}, pool_pre_ping=True')
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
+                           .format(username, password, db_name))
 
-    # Create a session using the sessionmaker method
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    Base.metadata.create_all(engine)
-
-    # Create the search Query
-    state = sys.argv[4]
-    newState = session.query(State).filter(State.name == state).order_by(State.id).first()
-
-    # Print the queryresults
-    if newState:
-        print(f'{states.id}')
-    else:
-        print("Not found")
+    for state in session.query(State).\
+            filter(State.name == search).order_by(State.id):
+        if state:
+            print('{}'.format(state.id))
+            found = 1
+    if not found:
+        print('Not found')
