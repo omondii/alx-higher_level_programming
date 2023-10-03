@@ -4,6 +4,7 @@ from relationship_state import Base
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, String, Integer, ForeignKey
 
+
 class City(Base):
     """ Define class state to create link to db """
     __tablename__ = 'cities'

@@ -6,12 +6,13 @@ from sqlalchemy.orm import relationship
 
 Base = declarative_base()
 
+
 class State(Base):
     """ class state to be linked to db table """
     __tablename__ = 'states'
 
     id = Column(Integer, nullable=False, autoincrement=True,
-                unique=True,primary_key=True)
+                unique=True, primary_key=True)
 
     name = Column(String(123), nullable=False)
 
