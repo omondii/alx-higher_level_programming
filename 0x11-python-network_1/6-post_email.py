@@ -1,20 +1,14 @@
 #!/usr/bin/python3
+"""Make a POST request
 """
-Imported modules;
-requests
-sys
-"""
-import requests
-import sys
 
-if __name__ = '__main__':
-    email = sys.argv[2]
-    url = sys.argv[1]
-    data = {'email': email}
-    try:
-        with requests.post(url, data) as response:
-            response.raise_for_status()
-            html = response.text
-        print(html)
-    except requests.exceptions.RequestException as e:
-        print('Error:', e)
+import requests
+from sys import argv
+
+if __name__ == '__main__':
+
+    url = argv[1]
+    email = argv[2]
+
+    r = requests.post(url, data={'email': email})
+    print(r.text)
