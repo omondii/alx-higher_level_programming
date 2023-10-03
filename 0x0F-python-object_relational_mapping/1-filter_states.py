@@ -12,8 +12,9 @@ if __name__ == '__main__':
     # create cursor object
     cursor = db.cursor()
 
-    # MySQL executi
+    # MySQL execution
     cursor.execute('SELECT id, name FROM states '
+                   'WHERE name LIKE BINARY "N%" '
                    'ORDER BY states.id ASC')
     for row in cursor.fetchall():
         print(row)
