@@ -22,11 +22,16 @@ if __name__ == '__main__':
       req - instannce to make an http POST.
          it takes as args; a url,body of the POST request & the request method
     """
-    email = sys.argv[2]
-    values = {'email': email}
-    data = urllib.parse.urlencode(values)
-    data = data.encode('utf-8')
-    req = urllib.request.Request(sys.argv[1], data, method='POST')
-    with urllib.request.urlopen(req) as response:
-        post = response.read()
-    print(data.decode('utf-8'))
+    url = argv[1]
+    email = {'email': argv[2]}
+
+    email = urllib.parse.urlencode(email)
+    email = email.encode('utf-8')
+
+    # make request object
+    request = urllib.request.Request(url, email)
+
+    with urllib.request.urlopen(request) as response:
+        response = response.read()
+        response = response.decode('utf-8')
+        print(response)
