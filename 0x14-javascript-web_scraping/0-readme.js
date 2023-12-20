@@ -1,15 +1,15 @@
 #!/usr/bin/node
 // Reading from a file using js
-// fs - file System 
+// fs - file System
 
 const fs = require('fs');
 const process = require('process');
 
-let filepath = process.argv[2];
-fs.readFile(filepath, 'utf8', function(err, data){
-    if (err) {
-        console.log(err);
-    } else {
-        console.log(data);
-    }
+const filepath = process.argv[2];
+fs.readFile(filepath, 'utf8', function (err, data) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
 });
